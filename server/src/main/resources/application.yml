@@ -1,0 +1,27 @@
+china:
+  motan:
+        #注册中心配置
+    registry:
+      regProtocol: consul #注册中心协议
+      address: 172.16.2.147 #注册中心地址
+      port: 8500
+        #协议配置
+    protocol:
+      name: motan #协议名称
+      defaultConfig: true
+      maxServerConnection: 80000
+      maxContentLength: 1048576
+      minWorkerThread: 20 #最小工作pool线程数
+      maxWorkerThread: 800 #最大工作pool线程数
+        #服务端配置
+    basicService:
+      export:  'demoMotan:8001' #服务端口
+      group: motan-demo-rpc
+      accessLog: false
+      shareChannel: true
+      module: motan-demo-rpc
+      registry : registry
+      application: myMotanDemo
+
+server:
+  port: 8081

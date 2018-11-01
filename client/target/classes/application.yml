@@ -1,0 +1,28 @@
+china:
+  motan:
+    registry:
+      regProtocol: consul
+      address: 172.16.2.147
+      port: 8500
+    protocol:
+      name: motan
+      defaultConfig: true
+      haStrategy: failover
+      loadbalance: roundrobin
+      maxClientConnection: 10
+      minClientConnection: 2
+    basicReferer:
+      requestTimeout: 200
+      accessLog: false
+      retries: 2
+      group: motan-demo-rpc
+      module: motan-demo-rpc
+      application: myMotanDemo
+      protocol: motan
+      registry : registry
+      shareChannel: true
+      id: clientBasicConfig
+      throwException: true
+      check: true
+server:
+  port: 8083
